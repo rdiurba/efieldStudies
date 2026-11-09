@@ -1,0 +1,4 @@
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdhd_27425.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdhd_28548.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdhd_28550.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdhd_29197.root

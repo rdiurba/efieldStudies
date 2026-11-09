@@ -1,0 +1,5 @@
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdvd_pt1.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdvd_pt2.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdvd_pt3.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdvd_pt4.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdvd_pt5.root

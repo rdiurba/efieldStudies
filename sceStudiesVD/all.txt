@@ -1,0 +1,6 @@
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdvd_p1GeV_period2_pt1.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdvd_p1GeV_period2_pt2.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdvd_p1GeV_pt3.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdvd_p1GeV_pt4.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdvd_p1GeV_pt5.root
+/exp/dune/data/users/rdiurba/michelremovingFiles/michelremovingpdvd_p1GeV_pt6.root

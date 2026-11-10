@@ -1,0 +1,61 @@
+#include "services_dune.fcl"
+#include "protodune_tools_dune.fcl"
+
+process_name: laseranalysispdhd
+
+services:
+{
+  TFileService: { fileName: "laseranalysispdhd.root" }
+  TimeTracker: {}
+  RandomNumberGenerator: {}
+                              @table::protodunehd_reco_services
+  Geometry:                   @local::protodunehdv6_geo
+  message:                    @local::standard_info
+}
+
+services.AuxDetGeometry.GDML: "protodunehd_v6_refactored.gdml"
+services.AuxDetGeometry.Name: "protodunehdv6"
+
+# This analyzer only READS reco products (Track/Hit/Calorimetry); it does not
+# deconvolve waveforms, so drop the signal-shaping service that the full reco
+# table pulls in (it fails to read its field-response file from cvmfs and
+# aborts the job).
+services.SignalShapingServiceDUNE: @erase
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1
+}
+
+physics:
+{
+  analyzers:
+  {
+    laseranalysispdhd:
+    {
+      module_type:            "laseranalysispdhd"
+      TrackModuleLabel:       "pandoraTrack"
+      CalorimetryModuleLabel: "pandoracalo"          # laser-run keepup files have pandoracalo / pandoracalonosce, no pandoraGnocchiCalo
+      HitsModuleLabel:        "hitpdune"
+      RDTimeStampTag:         "timingrawdecoder:daq" # one RDTimeStamp per event (timing system) -> rdtimestamp branch
+      MinTrackLength:         0.0
+      # "bubble" selection, one entry per laser (LArSoft frame). Per event the
+      # first laser with any track within BubbleRadius (3D distance) is used; if
+      # none, the next one is tried. laser_id branch records which (-1 = none).
+      # Leave LaserX empty ([]) for a Y-Z-only cut.
+      #  [0] periscope at X=-245.9..-243.8, Y=583.8, Z=352.5 (CSV 2024-12-04
+      #      00:41): the laser position itself (inside the active volume).
+      #  [1] periscope at Y=534.7, Z=-133.5 (CSV 2024-12-04 08:57): that is
+      #      upstream of Z=0, so the bubble is put where its beam enters at Z=0:
+      #      X = -263.9..-196.1 -> -230, Y = 406..415 -> 410 (from CSV pos+dir).
+      LaserX:                 [ -244.86, -230.0 ]
+      LaserY:                 [ 583.783, 410.0 ]
+      LaserZ:                 [ 352.523,   0.0 ]
+      BubbleRadius:           60.0                  # cm; <=0 = disabled (save all)
+    }
+  }
+
+  ana:        [ laseranalysispdhd ]
+  end_paths:  [ ana ]
+}

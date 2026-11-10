@@ -42,7 +42,7 @@ physics:
       CalorimetryModuleLabel: "pandoracalonosce"          # laser-run keepup files have pandoracalo / pandoracalonosce, no pandoraGnocchiCalo
       HitsModuleLabel:        "hitpdune"
       RDTimeStampTag:         "timingrawdecoder:daq" # one RDTimeStamp per event (timing system) -> rdtimestamp branch
-      MinTrackLength:         20.0
+      MinTrackLength:         2.0
       # "bubble" selection, one entry per laser (LArSoft frame). Per event the
       # first laser with any track within BubbleRadius (3D distance) is used; if
       # none, the next one is tried. laser_id branch records which (-1 = none).

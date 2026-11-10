@@ -1,0 +1,9 @@
+#include "standard_reco_protodunehd_keepup_moreHits_100k_perTPC.fcl"
+#services.DetectorClocksService.TriggerOffsetTPC: 5500
+#services.DetectorClocksService.TriggerOffsetTPC: -2750
+services.DetectorPropertiesService.NumberTimeSamples: 10742
+services.DetectorPropertiesService.ReadOutWindowSize: 10742
+services.DetectorClocksService.TriggerOffsetTPC: 5500
+services.DetectorClocksService.DefaultBeamTime: 2750
+services.DetectorClocksService.DefaultTrigTime: 2750
+services.DetectorClocksService.G4RefTime: -2750

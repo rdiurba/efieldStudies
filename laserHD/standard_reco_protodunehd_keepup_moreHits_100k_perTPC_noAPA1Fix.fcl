@@ -1,0 +1,10 @@
+#include "standard_reco_protodunehd_offline.fcl"
+
+physics.producers.gaushit.PulseHeightCuts: [1, 1, 1]
+
+physics.filters.nhitsfilter.LimitPerTPC: true
+physics.filters.nhitsfilter.HitLimit: 100000
+
+physics.producers.pandora.ConfigFile: "PandoraSettings_Master_ProtoDUNE_HD.xml"
+
+#physics.producers.tpcrawdecoder.DecoderToolParams.DebugLevel: 1
